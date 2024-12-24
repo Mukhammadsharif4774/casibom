@@ -4,7 +4,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Text,
-  ScrollView,
+  ScrollView, FlatList,
 } from 'react-native';
 import {AppContext} from '../components/AppContext';
 import CasibomHeader from '../components/CasibomHeader';
@@ -34,6 +34,8 @@ export default function CasibomHomeScreen() {
     toggleRefresh(!shouldRefresh);
   };
 
+  const renderProduct = ({ item }) => <CasibomMenuComponent item={item} />;
+
   return (
     <View style={styles.container}>
       <CasibomHeader />
@@ -50,11 +52,13 @@ export default function CasibomHomeScreen() {
         ))}
       </View>
 
-      <ScrollView style={styles.flex} contentContainerStyle={styles.main}>
-        {casiboomProducts[category].map((product, index) => (
-          <CasibomMenuComponent key={index} item={product} />
-        ))}
-      </ScrollView>
+      <FlatList
+          data={casiboomProducts[category]}
+          renderItem={renderProduct}
+          keyExtractor={(item, index) => index.toString()}
+          contentContainerStyle={styles.main}
+          style={styles.flex}
+      />
     </View>
   );
 }
@@ -95,9 +99,7 @@ const styles = StyleSheet.create({
   main: {
     paddingBottom: 100,
     paddingHorizontal: 20,
-    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    flexWrap: 'wrap',
   },
 });

@@ -72,7 +72,6 @@ export default function () {
 
       {cart.length ? (
         <View style={styles.summaryContainer}>
-          <Text style={styles.sumTitle}></Text>
           <Text style={styles.sum}>{totalPrice}$</Text>
         </View>
       ) : (

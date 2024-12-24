@@ -45,9 +45,10 @@ export default function ({item}) {
 
       <View
         style={{
-          width: '100%',
+          width: '55%',
           justifyContent: 'space-between',
-          height: 150,
+          height: 130,
+          paddingVertical: 5,
         }}>
         <Text style={styles.title}>{item?.name}</Text>
 
@@ -67,29 +68,30 @@ export default function ({item}) {
 
 const styles = StyleSheet.create({
   main: {
-    width: '47%',
+    width: '100%',
     alignSelf: 'center',
-    height: 320,
+    height: 130,
     marginTop: 35,
     backgroundColor: COLORS.white,
+    flexDirection: 'row',
   },
   image: {
-    width: '100%',
-    height: 170,
+    width: '45%',
+    height: 130,
     borderRadius: 12,
     marginRight: 10,
   },
   title: {
-    fontSize: 16,
+    fontSize: 13,
     fontFamily: FONTS.bold,
     color: COLORS.black,
-    width: '100%',
+    width: '95%',
   },
   description: {
-    fontSize: 12,
+    fontSize: 10,
     fontFamily: FONTS.light,
     color: COLORS.black,
-    width: '100%',
+    width: '95%',
     marginTop: 2,
   },
   row: {
@@ -115,8 +117,7 @@ const styles = StyleSheet.create({
     color: COLORS.black,
     borderColor: COLORS.black,
     backgroundColor: COLORS.main,
-    width: width * 0.28,
-    paddingHorizontal: 10,
+    paddingHorizontal: 8,
     paddingVertical: 1,
     borderRadius: 15,
   },

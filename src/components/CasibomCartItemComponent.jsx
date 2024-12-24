@@ -58,30 +58,30 @@ const CasibomCartItemComponent = ({item}) => {
       <Image source={productImage} style={styles.image} />
 
       <View style={styles.details}>
-        <View style={styles.countContainer}>
-          <TouchableOpacity
-            style={styles.actionButton}
-            onPress={() =>
-              carts.find(product => product.name === item.name)?.count > 1
-                ? decrement()
-                : deleteItem()
-            }>
-            <Text style={styles.plusMinus}>-</Text>
-          </TouchableOpacity>
-
-          <Text style={styles.count}>
-            {carts.find(product => product.name === item.name)?.count || 0}
-          </Text>
-
-          <TouchableOpacity style={styles.actionButton} onPress={increment}>
-            <Text style={styles.plusMinus}>+</Text>
-          </TouchableOpacity>
-        </View>
-
         <Text style={styles.title}>{item.name}</Text>
         <Text style={styles.description}>{item.description}</Text>
 
         <View style={styles.row}>
+          <View style={styles.countContainer}>
+            <TouchableOpacity
+                style={styles.actionButton}
+                onPress={() =>
+                    carts.find(product => product.name === item.name)?.count > 1
+                        ? decrement()
+                        : deleteItem()
+                }>
+              <Text style={styles.plusMinus}>-</Text>
+            </TouchableOpacity>
+
+            <Text style={styles.count}>
+              {carts.find(product => product.name === item.name)?.count || 0}
+            </Text>
+
+            <TouchableOpacity style={styles.actionButton} onPress={increment}>
+              <Text style={styles.plusMinus}>+</Text>
+            </TouchableOpacity>
+          </View>
+
           <Text style={styles.currencyText}>{`${item.price} $`}</Text>
         </View>
       </View>
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '40%',
-    height: 140,
+    height: 120,
     borderRadius: 12,
     alignSelf: 'flex-start',
   },
@@ -110,13 +110,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   title: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: FONTS.bold,
     color: COLORS.black,
     width: '90%',
   },
   description: {
-    fontSize: 12,
+    fontSize: 10,
     fontFamily: FONTS.light,
     color: COLORS.black,
     width: '90%',
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.black,
     textAlign: 'center',
     verticalAlign: 'middle',
-    marginRight: 15,
+    marginLeft: 15,
     color: COLORS.black,
   },
   row: {
